@@ -1,0 +1,19 @@
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+:root {
+    --bs-navbar-bg: #8494af;
+}
+
+.navbar-dark {
+    background-color: var(--bs-navbar-bg) !important;
+}
+
+
+body {
+
+    background-color: grey;
+    color: whitesmoke;
+}

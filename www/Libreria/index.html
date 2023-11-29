@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Libreria Francisco Bermejo</title>
+</head>
+
+<body>
+    <!--  NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Libreria Francisco Bermejo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Libro
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" id="menuAltaLibro">Alta</a></li>
+                            <li><a class="dropdown-item" href="#" id="menuActualizarLibro">Actualizar</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" id="menuEliminarLibro">Eliminar</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Autor
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" id="menuAltaAutor">Alta</a></li>
+                            <li><a class="dropdown-item" href="#" id="menuActualizarAutor">Actualizar</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" id="menuEliminarAutor">Eliminar</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Listar
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" id="menuLibroPorAutor">Buscar libros del autor</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" id="menuAutorPorLibro">Buscar el autor del libro</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" id="menuListaAutores">Autores</a></li>
+                            <li><a class="dropdown-item" href="#" id="menuListaLibros">Libros</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- FORMULARIO -->
+    <div class="container">
+        <!-- FORMULARIO ALTA LIBRO -->
+        <div class="container m-5">
+            <form name="frmAltaLibro" id="frmAltaLibro">
+                <fieldset>
+                    <legend>Alta de libro</legend>
+                    <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">Título</label>
+                        <input type="text" name="txtTituloLibro" id="txtTituloLibro" class="form-control"
+                            placeholder="Titulo libro">
+                    </div>
+                    <div class="mb-3">
+                        <label for="disabledSelect" class="form-label">Autor</label>
+                        <select id="lstAutores" name="lstAutores" class="form-select">
+                            <option>Seleciona autor</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">Fecha de Publicación</label>
+                        <input type="date" name="dateFechaPublicacion" id="dateFechaPublicacion" class="form-control">
+                    </div>
+                    <button type="button" id="btnGuardarLibro" name="btnGuardarAutor"
+                        class="btn btn-primary">Guardar</button>
+                </fieldset>
+            </form>
+
+        </div>
+
+        <!-- FORMULARIO MOFICAR LIBRO -->
+        <div class="container m-5">
+            <form name="frmModLibro" id="frmModLibro">
+                <fieldset>
+                    <legend>Modificar de libro</legend>
+                    <div class="mb-3">
+                        <label for="disabledSelect" class="form-label">Elige el libro que quieras modificar</label>
+                        <select id="lstLibrosModificar" name="lstLibrosModificar" class="form-select">
+                            <option>Seleciona el libro</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">Título</label>
+                        <input type="text" id="txtTituloLibroMod" name="txtTituloLibroMod" class="form-control"
+                            placeholder="Titulo libro">
+                    </div>
+                    <div class="mb-3">
+                        <label for="disabledSelect" class="form-label">Autor</label>
+                        <select id="lstModificarAutorDelLibro" name="lstModificarAutorDelLibro" class="form-select">
+                            <option>Seleciona autor</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">Fecha de Publicación</label>
+                        <input type="date" id="dateFechaLibroMod" name="dateFechaLibroMod" class="form-control">
+                    </div>
+                    <button type="button" id="btnActualizar" name="btnActualizar"
+                        class="btn btn-primary">Guardar</button>
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- FORMULARIO ELIMINAR LIBRO -->
+        <div class="container m-5">
+            <form name="frmDelLibro" id="frmDelLibro">
+                <fieldset>
+                    <legend>Eliminar libro</legend>
+                    <div class="mb-3">
+                        <label for="disabledSelect" class="form-label">Elige el libro que quieras eliminar</label>
+                        <select id="lstLibrosDelete" name="lstLibrosDelete" class="form-select">
+                            <option>Seleciona el libro</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" name="btnDeleteLibro"
+                        id="btnDeleteLibro">Eliminar</button>
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- FORMULARIO ALTA AUTOR -->
+        <div class="container m-5">
+            <form name="frmAltaAutor" id="frmAltaAutor">
+                <fieldset>
+                    <legend>Alta de Autor</legend>
+                    <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">Nombre</label>
+                        <input type="text" id="txtNombreAutor" name="txtNombreAutor" class="form-control"
+                            placeholder="Nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">Fecha Nacimiento</label>
+                        <input type="date" id="dateFechaNacimiento" name="dateFechaNacimiento" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">Nacionalidad</label>
+                        <input type="text" id="txtNacionalidad" name="txtNacionalidad" class="form-control"
+                            placeholder="Nacionalidad">
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="chkPremio" id="chkPremio">
+                            <label class="form-check-label" for="disabledFieldsetCheck">
+                                Premio Planeta
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-primary" name="btnGuardarAutor"
+                            id="btnGuardarAutor">Guardar</button>
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- FORMULARIO MODIFICAR AUTOR -->
+        <div class="container m-5">
+            <form name="frmModAutor" id="frmModAutor">
+                <fieldset>
+                    <legend>Modificar de Autor</legend>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Elige el autor que quieras modificar</label>
+                        <select id="lstAutorForMofificar" name="lstAutorForMofificar" class="form-select">
+                            <option>Seleciona el autor</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">Nombre</label>
+                        <input type="text" id="txtAutorModificar" name="txtAutorModificar" class="form-control"
+                            placeholder="Nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">Fecha Nacimiento</label>
+                        <input type="date" id="dateFechaNacimientoModificar" name="dateFechaNacimientoModificar"
+                            class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">Nacionalidad</label>
+                        <input type="text" id="txtNacionalidadAutorModificar" class="form-control"
+                            placeholder="Nacionalidad">
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="chkPremioModificar"
+                                name="chkPremioModificar">
+                            <label class="form-check-label" for="disabledFieldsetCheck">
+                                Premio Planeta
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="btnActualizarAutor"
+                            name="btnActualizarAutor">Guardar</button>
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- FORMULARIO ELIMINAR AUTOR -->
+        <div class="container m-5">
+            <form name="frmDelAutor" id="frmDelAutor">
+                <fieldset>
+                    <legend>Eliminar autor</legend>
+                    <div class="mb-3">
+                        <label for="disabledSelect" class="form-label">Elige el autor que quieras eliminar</label>
+                        <select id="lstAutoresDelete" name="lstAutoresDelete" class="form-select">
+                            <option>Seleciona el autor</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" name="btnDeleteAutor"
+                        id="btnDeleteAutor">Eliminar</button>
+                </fieldset>
+            </form>
+            <!-- <div id="mensajeDeleteAutor" style="display: none;"></div> -->
+        </div>
+
+
+        <!-- FORMULARIO LISTAR LIBROS -->
+        <div class="container m-5">
+            <form name="frmListaLibrosPorAutor" id="frmListaLibrosPorAutor">
+                <fieldset>
+                    <h2>Listar los libros del autor:</h2>
+                    <div class="mb-3">
+                        <label for="disabledSelect" class="form-label">Elige el autor</label>
+                        <select id="lstLibrosForAutor" name="lstLibrosForAutor" class="form-select">
+                            <option>Seleciona el autor</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" name="btnLibrosPorAutor"
+                        id="btnLibrosPorAutor">Buscar</button>
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- FORMULARIO LISTAR AUTORES -->
+        <div class="container m-5" name="frmListaAutoresPorLibro" id="frmListaAutoresPorLibro">
+            <form>
+                <fieldset>
+                    <h2>Listar el autor del libro:</h2>
+                    <div class="mb-3">
+                        <label for="disabledSelect" class="form-label">Elige el libro</label>
+                        <select id="lstAutoresForLibros" name="lstAutoresForLibros" class="form-select">
+                            <option>Seleciona el libro</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="btnAutorPorLIbros"
+                        name="btnAutorPorLIbros">Buscar</button>
+                </fieldset>
+            </form>
+        </div>
+        <div class="container m-5" name="tblListaLibros" id="tblListaLibros">
+            <h2>Listado de libros</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Fecha de Publicación</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBooks" name="tableBooks">
+                    <!-- Aquí se agregarán las filas -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="container m-5" name="tblListaAutores" id="tblListaAutores">
+            <h2>Listado de autores</h2>
+            <table class="table table-striped" name="tblListaAutores" id="tblListaAutores">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Fecha de nacimiento</th>
+                        <th scope="col">Premio Nobel</th>
+                        <th scope="col">Nacionalidad</th>
+                    </tr>
+                </thead>
+                <tbody id="tableAuthors" name="tableAuthors">
+                    <!-- Aquí se agregarán las filas -->
+                </tbody>
+            </table>
+        </div>
+        <div class="container m-5" name="tblListaAutoresPorLibro" id="tblListaAutoresPorLibro">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Fecha de nacimiento</th>
+                        <th scope="col">Premio Planeta</th>
+                        <th scope="col">Nacionalidad</th>
+                    </tr>
+                </thead>
+                <tbody id="tableAuthorsPorLibro" name="tableAuthorsPorLibro">
+                    <!-- Aquí se agregarán las filas -->
+                </tbody>
+            </table>
+        </div>
+        <div class="container m-5" name="tblListaLibrosPorAutor" id="tblListaLibrosPorAutor">
+            <table class="table table-striped">
+                <thead>
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Fecha de Publicación</th>
+                        </tr>
+                    </thead>
+                </thead>
+                <tbody id="tableLibroPorAutor" name="tableLibroPorAutor">
+                    <!-- Aquí se agregarán las filas -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <script src="JS/ajax.js"></script>
+    <script src="JS/objeto.js"></script>
+    <script src="JS/codigo.js"></script>
+
+</body>
+
+</html>
